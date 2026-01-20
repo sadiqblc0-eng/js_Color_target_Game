@@ -17,7 +17,7 @@ const colorNames = [
   "Silver",
 ];
 
-let winingScore = 1;
+let winingScore = 7;
 let targetColor = "";
 let score = 0;
 let timer = 120;
@@ -35,8 +35,11 @@ cells.forEach(cell =>{
 setRendomColor();
 
 let setTargetColor = ()=>{
-  let randomIndex = Math.floor(Math.random()*colorNames.length);
-  targetColor = colorNames[randomIndex]
+  let newColor;
+  do{
+    newColor = colorNames[Math.floor(Math.random()*colorNames.length)];
+  }while(newColor === targetColor);
+  targetColor = newColor;
   document.getElementById('targetColor').textContent = targetColor;
 };
 
